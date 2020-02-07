@@ -1,0 +1,36 @@
+schema {
+    query: Query,
+    mutation: Mutation
+}
+
+type Query {
+    pets: [Pet]
+    petById(id: Int!): Pet
+    petsByName(name: String!): [Pet]
+}
+
+type Mutation {
+    addPet(pet: PetInput!): Pet
+    deletePetById(id: Int!) : Int
+}
+
+input PetInput {
+    type: Animal
+    name: String
+    age: Int
+}
+
+type Pet {
+    id: Int
+    type: Animal
+    name: String
+    age: Int
+}
+
+
+enum Animal {
+    DOG
+    CAT
+    BADGER
+    MAMMOTH
+}
